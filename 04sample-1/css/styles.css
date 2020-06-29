@@ -1,0 +1,280 @@
+@charset "utf-8";
+
+html{
+    /*基本のフォントサイズを１０にする*/
+    font-size: :62.5%;
+    }
+
+body{
+    margin:0 auto;
+    /*フォント指定*/
+    font-family: Yu Gothic,YuGothic,ヒラギノ角ゴ　pro W3,Hiragino kaku Gothic pro,メイリオ;
+    background-color: #ffffff;
+    color: #ffffff;
+    width:100vw;
+    height: 100vh;
+    /*vhは１００ デバイスいっぱいの高さ*/
+        
+    
+    /*hederの設定*/
+    
+}
+header{
+    position: fixed;
+    z-index: 10;
+}
+.header nav{
+    margin: 0 10px 0 auto;
+
+}
+.header{
+    height:50px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    
+}
+/*header内タイトル部分*/
+.header h1{
+    font-size: 1.3rem;
+    color: #000000;
+    font-weight: 700;
+}
+.hero-image{
+    position: fixed;
+    z-index: 1;
+    opacity: 1;
+    
+}
+    
+    /*ナビゲーションが入るところ*/
+/*ナビの阿防と部分の設定*/
+.header a{
+    font-size: 1rem;
+    color: #a2a2a2;
+    margin-left: 1rem;
+    margin-right: 1.5rem;
+    text-decoration: none;
+    
+}
+.space{
+    height: 330px;
+}
+
+#nav{
+    position: fixed;
+    top:0;
+    padding: 16px;
+    height: 80vh;
+    width: 60vw;
+    background-color: #fff;
+    
+}
+/*ボタンの設定*/
+#nav a {
+    font-size: 1.6rem;
+    color:#454c57;
+    text-decoration: none;
+    
+}
+/*link4の設定*/
+#nav li {
+    margin-top: 2rem;
+    
+}
+#nav:not(:target){
+    left:-100%;
+    transition: left 1.5s;
+    
+}
+#nav:target{
+    left:0;
+    transition: left 1s;
+    /*ここまでナビ*/
+}
+    .hero-img img{
+        width: 100%;
+        height: auto;
+        
+        
+    }
+main{
+    font-size: 16px;
+    }
+/*緑の角丸はせん枠*/
+.about{
+    margin: 13px 10vw;
+    padding: 8px;
+    color: white;
+
+}
+/*あぼうと　文字サイズ*/
+.about h2{
+    font-size: 1rem;
+    color: #5c5c5c;
+    margin: 2rem;
+}
+/*このページの説明部分*/
+.about p{
+    /* 文字さいず１remで１０px*/
+    font-size: 1rem;
+    margin:16px;
+    /*行間*/
+    line-height: 3;
+    border: solid 1px;
+    color: #898888;
+}
+/*黄色画像を横に並べたりするflexの親設定*/
+.flex-container{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+    align-items: center;
+}
+/*黄色枠の設定*/
+.works{
+    width: 41%;
+    /*黄色枠線内余白の設定*/
+    padding-top: 23px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 23px;
+    /*画像や青文字のテキストの枠はここで設定*/
+    border: solid #ffffff 1px;
+    
+}
+/*yellow画像の設定*/
+.works img{
+    width: min(70%,600px);
+    height:auto;
+    /*display:inlinenoimgをblockに変更*/
+    display: block;
+    margin: 0 auto;
+}
+/*拡大画像のキャプション*/
+.works h3{
+    padding: 8px 0;
+    /*上下８px左右０*/
+    font-size: 1.6rem;
+    color:#fff;
+    font-weight: bold;
+    /*拡大画像した二行目の設定*/
+}
+.works figcaption{
+    font-size: 1.6rem;
+    color:#000000;}
+    
+/*モーダルウィンドウ最初は隠れている拡大画像の設定*/
+.zoomout figure{
+    margin;0;
+    display:none;
+     }
+
+/*表示されている画像をクリックしたときの設定*/
+.zoomout figure:target{
+    display: block;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+    z-index: 9999;
+}
+/*拡大画像の表示位置*/
+.zoomout figure:target .overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.6);
+    text-decoration: none;
+    color: inherit;
+}
+
+.zoomout figure:target img{
+    -webkit-animation:fadein.3s;
+    animation:fadein.3s;
+}
+    /*拡大画像が出てくるまでの時間と透明度↑のfade-inと関係している。*/
+@keyframes fadein{
+    0%{
+        transform: scale(0.2);
+        opacity: 0.2
+            
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+        
+    }
+    .works p{
+        font-size:16px;
+        color:blue;
+        }
+    /*ここに後で上へ戻るボタンのcssが入ります*/
+    /*トップ戻るボタンの位置を指定*/
+    .place{
+        position: fixed;
+        bottom: 48px;
+        right: 56px;
+        z-index: 9999;
+        opacity: 0.3;
+        
+    }
+    /*トップに戻るボタンの大枠*/
+    .arrow{
+      position: relative;  
+    } 
+    .arrow::before,
+    .arrow::after{
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        margin:auto;
+        content: "";
+        
+    }
+    /*角丸の大きさ　せんの太さ*/
+    .button::before {
+        box-sizing: border-box;
+    
+        width: 40px;
+        height:40px;
+        border: 4px solid #454c57;
+        background: #2a2a2a;
+        -webkit-border-radius:50%;
+        border-radius: 5%;
+        
+        
+    }
+    /*矢印の棒を置く*/
+    .button::after{
+        left: 13px;
+        top:4px;
+        width:10px;
+        height:10px;
+        border-top:4px solid #454c57;
+        border-right: 4px solid #454c57;
+        -webkit-transform:rotate(-45deg);
+        transform:rotate(-45deg);
+    }
+    
+    
+    /*footerの設定*/
+    footer{
+        margin-top: 6.3rem;
+        text-align: center;
+        width: 100%;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        background-color: #6f3300;
+        color:#bf1e1e;
+        
+    
+}
